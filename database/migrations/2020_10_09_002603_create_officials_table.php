@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateOfficialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('officials', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->string('id', 10)->unique()->primary()->comment('Llave primaría designada al Alias o codigo de acceso para los usuarios');
-            $table->string('password');
-            $table->enum('rol', ['EPS', 'Funcionario']);
+            
+            $table->string('email', 100)->unique();
+            $table->string('phone', 10);
+            $table->string('address', 50);
+            $table->string('profession', 50);
+            $table->string('position', 50);
+
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('officials');
     }
 }

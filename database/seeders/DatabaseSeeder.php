@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Person;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        
+        //User::factory(1)->create();
+        // Person::factory(10)->create();
+        $this->call(EPSSeeder::class);
+        // $this->call(OfficialSeeder::class);
+        // $this->call(VVCSeeder::class);
+        // $this->call(VaccineSeeder::class);
     }
 }

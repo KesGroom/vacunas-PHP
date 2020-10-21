@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//mostrar las vacunas 
+Route::get('vaccines/index',[VaccineController::class, 'index'])->name('vaccines.index');
+//mostrar los usuarios 
+Route::get('Users/index',[UserController::class, 'index'])->name('users.index');
+//Formulario de users
+Route::get('Users/{user}/edit',[UserController::class, 'edit'])->name('users.edit');
+//Formulario de users
+Route::get('Users/{user}/edit',[UserController::class, 'edit'])->name('users.edit');
+//actualizacion de users
+Route::put('Users/{user}',[UserController::class,'update'])->name('users.update');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
