@@ -16,20 +16,15 @@ class EPSSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
+        User::factory(6)->create([
+            'rol' => 'EPS',
+        ]);
 
-        $user->id = "User451213";
-        $user->password = bcrypt('password');
-        $user->rol = 'EPS';
-        $user->save();
-
-        $eps = new Eps();
-        $eps->name = 'Famisanar';
-        $eps->address = 'Aquí';
-        $eps->phone = '7504481';
-        $eps->state = 'Cundinamarca';
-        $eps->city = 'Bogotá';
-        $eps->user = $user->id;
-        $eps->save();
+        $users = User::all();
+        $users->each(function($user){
+            Eps::factory(1)->create([
+                'user' => $user->id
+            ]);
+        });
     }
 }

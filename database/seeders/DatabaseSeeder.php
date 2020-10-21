@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'rol'=>'EPS'
         ]);
         // Person::factory(10)->create();
-        //$this->call(EPSSeeder::class);
+        $this->call(EPSSeeder::class);
         // $this->call(OfficialSeeder::class);
         // $this->call(VVCSeeder::class);
         // $this->call(VaccineSeeder::class);
