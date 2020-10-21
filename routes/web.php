@@ -27,6 +27,6 @@ Route::get('Users/{user}/edit',[UserController::class, 'edit'])->name('users.edi
 Route::get('Users/{user}/edit',[UserController::class, 'edit'])->name('users.edit');
 //actualizacion de users
 Route::put('Users/{user}',[UserController::class,'update'])->name('users.update');
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

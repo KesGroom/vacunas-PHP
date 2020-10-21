@@ -24,7 +24,7 @@ class AddForeignKeyOfficialsTable extends Migration
                 ->references('id')->on('eps')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('user');
+            $table->integer('user')->unsigned();
             $table->foreign('user')
                 ->references('id')->on('users')
                 ->onDelete('cascade')

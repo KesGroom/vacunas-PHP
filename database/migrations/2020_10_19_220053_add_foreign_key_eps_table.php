@@ -14,7 +14,7 @@ class AddForeignKeyEpsTable extends Migration
     public function up()
     {
         Schema::table('eps', function (Blueprint $table) {
-            $table->string('user', 10);
+            $table->integer('user')->unsigned();
             $table->foreign('user')
             ->references('id')->on('users')
             ->onDelete('cascade')

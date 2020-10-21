@@ -15,7 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->string('id', 10)->unique()->primary()->comment('Llave primaría designada al Alias o codigo de acceso para los usuarios');
+            $table->increments('id');
+            $table->string('username')->unique();
             $table->string('password');
             $table->enum('rol', ['EPS', 'Funcionario']);
             $table->timestamps();
