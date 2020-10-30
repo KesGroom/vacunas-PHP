@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
         User::factory(1)->create([
             'rol'=>'EPS'
         ]);
-        // Person::factory(10)->create();
+        Person::factory(10)->create();
         $this->call(EPSSeeder::class);
-        // $this->call(OfficialSeeder::class);
-        // $this->call(VVCSeeder::class);
-        // $this->call(VaccineSeeder::class);
+        $this->call(OfficialSeeder::class);
+        $this->call(VVCSeeder::class);
+        $this->call(VaccineSeeder::class);
     }
 }

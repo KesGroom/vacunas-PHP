@@ -31,4 +31,12 @@ class Official extends Model
         'password',
         'remember_token'
     ];
+    public function vvc()
+    {
+        return $this->belongsTo('App\Models\Vvc', 'official_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user');
+    }
 }
